@@ -1,0 +1,65 @@
+┌─────────────┐
+│ Microphone  │
+│ (INMP441)   │
+└──────┬──────┘
+       │
+       ▼
+┌─────────────────┐
+│ ESP32           │
+│ Record Audio    │
+│ (I2S Interface) │
+└──────┬──────────┘
+       │
+       │ WAV/PCM data
+       ▼
+┌─────────────────┐
+│ Python Server   │
+│ Receives Audio  │
+└──────┬──────────┘
+       │
+       ▼
+┌─────────────────┐
+│ Speech-to-Text  │
+│ (Whisper/Groq)  │
+└──────┬──────────┘
+       │
+       │ User Text
+       ▼
+┌─────────────────┐
+│ Groq LLM        │
+│ (Llama/Gemma)   │
+│ Generate Reply  │
+└──────┬──────────┘
+       │
+       │ Response Text
+       ▼
+┌─────────────────┐
+│ Text-to-Speech  │
+│ (gTTS/OpenAI/   │
+│ ElevenLabs)     │
+└──────┬──────────┘
+       │
+       │ WAV/MP3
+       ▼
+┌─────────────────┐
+│ Python Server   │
+│ Sends Audio     │
+└──────┬──────────┘
+       │
+       ▼
+┌─────────────────┐
+│ ESP32           │
+│ Receives WAV    │
+│ via Socket      │
+└──────┬──────────┘
+       │
+       ▼
+┌─────────────────┐
+│ MAX98357A       │
+│ Speaker Amplifier│
+└──────┬──────────┘
+       │
+       ▼
+┌─────────────┐
+│ Speaker     │
+└─────────────┘
